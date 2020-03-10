@@ -27,4 +27,4 @@ Several software engineering techniques are used:
 
 Contributors
 ------------
-EMPTY
+Florent Pruvost florent.pruvost@inria.fr
