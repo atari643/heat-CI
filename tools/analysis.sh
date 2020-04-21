@@ -25,30 +25,27 @@ ${DRMEMORY}/drmemory -logdir drmemory -- ./build/heat_seq "10" "10" "200" "0" "0
 
 # Create the config for sonar-scanner
 cat > sonar-project.properties << EOF
-sonar.host.url=http://alee.iut.bx1:9000/
-sonar.links.homepage=https://gitlab.inria.fr/sed-bso/heat
-sonar.links.scm=https://gitlab.inria.fr/sed-bso/heat.git
-sonar.projectKey=heat:gitlab:master
+sonar.links.homepage=https://gitlab-ce.iut.u-bordeaux.fr/lp-dagpi-devops/heat
+sonar.links.scm=https://gitlab-ce.iut.u-bordeaux.fr/lp-dagpi-devops/heat.git
+sonar.projectKey=heat
 sonar.projectDescription=Solve the heat propagation equation
-sonar.projectVersion=2.0
+sonar.projectVersion=1.0
 sonar.scm.disabled=false
 sonar.scm.provider=git
 sonar.sourceEncoding=UTF-8
 sonar.sources=.
-sonar.exclusions=build/CMakeFiles/**
-sonar.language=c
+sonar.exclusions=build/CMakeFiles/**,coverage/**,*.xml
+sonar.lang.patterns.c++=**/*.c,**/*.h
+sonar.lang.patterns.c++=**/*.cpp,**/*.hpp
 sonar.c.errorRecoveryEnabled=true
-sonar.c.includeDirectories=$(echo | gcc -E -Wp,-v - 2>&1 | grep "^ " | tr '\n' ',')/usr/lib/x86_64-linux-gnu/openmpi/include,include,.
-sonar.c.compiler.parser=GCC
-sonar.c.compiler.charset=UTF-8
-sonar.c.compiler.regex=^(.*):(\\\d+):\\\d+: warning: (.*)\\\[(.*)\\\]$
-sonar.c.compiler.reportPath=build/heat-build.lo
+sonar.c.includeDirectories=/usr/lib/gcc/x86_64-linux-gnu/9/include, /usr/local/include, /usr/lib/gcc/x86_64-linux-gnu/9/include-fixed, /usr/include/x86_64-linux-gnu, /usr/include, ., include
+sonar.c.gcc.charset=UTF-8
+sonar.c.gcc.regex=(?<file>.*):(?<line>[0-9]+):[0-9]+:\\\x20warning:\\\x20(?<message>.*)\\\x20\\\[(?<id>.*)\\\]
+sonar.c.gcc.reportPath=build/heat-build.log
 sonar.c.clangsa.reportPath=build/analyzer_reports/*/*.plist
-sonar.c.clangtidy.reportPath=clang-tidy-report
+sonar.c.clangtidy.reportPath=build/clang-tidy-report
 sonar.c.coverage.reportPath=heat-coverage.xml
 sonar.c.cppcheck.reportPath=heat-cppcheck.xml
-sonar.c.rats.reportPath=heat-rats.xml
-sonar.c.vera.reportPath=heat-vera.xml
 sonar.c.valgrind.reportPath=heat-valgrind.xml
 sonar.c.drmemory.reportPath=drmemory/**/results.txt
 EOF

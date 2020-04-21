@@ -9,6 +9,7 @@ export CFLAGS="-O0 -g -fPIC --coverage -Wall -Wunused-parameter -Wundef -Wno-lon
 
 mkdir -p build
 cd build
+rm CMake* -rf
 
 # configure
 scan-build -v -plist --intercept-first --analyze-headers -o analyzer_reports cmake .. \
