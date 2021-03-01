@@ -24,6 +24,31 @@ Several software engineering techniques are used:
 * A pipeline to test the code, either gitlab-ci (.gitlab-ci.yml) or Jenkins (Jenkinsfile) can be used
 * Org-mode script for the code analysis and the integration into a SonarQube instance
 
+Install
+---------------------
+
+This program requires : Git, a C compiler (GNU gcc for example) and CMake to build and install.
+
+Example on Ubuntu 20.04
+```sh
+docker run -it ubuntu:20.04
+
+apt update -y
+apt install -y build-essential cmake git
+
+# clone the project through git+ssh if you have added your ssh public key on Gitlab
+git clone git@gitlab-ce.iut.u-bordeaux.fr:lp-dagpi-devops/heat.git
+# or through https with login+password authentication
+git clone https://gitlab-ce.iut.u-bordeaux.fr/lp-dagpi-devops/heat.git
+
+cd heat
+mkdir build
+cd build
+cmake ..
+make
+make test
+make install
+```
 
 Contributors
 ------------
