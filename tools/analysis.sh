@@ -20,9 +20,6 @@ bash -c 'find ${SOURCES_TO_ANALYZE} -regex ".*\.c\|.*\.h" | vera++ - -showrules 
 valgrind --xml=yes --xml-file=heat-valgrind.xml --memcheck:leak-check=full --show-reachable=yes "./build/heat_seq" "10" "10" "200" "0" "0"
 #mpirun "-np" "4" valgrind --xml=yes --xml-file=heat-valgrind.xml --memcheck:leak-check=full --show-reachable=yes --suppressions=/usr/share/openmpi/openmpi-valgrind.supp --suppressions=tools/heat-valgrind.supp "./build/heat_par" "10" "10" "200" "2" "2" "0"
 
-mkdir -p drmemory
-${DRMEMORY}/drmemory -logdir drmemory -- ./build/heat_seq "10" "10" "200" "0" "0"
-
 # Create the config for sonar-scanner
 cat > sonar-project.properties << EOF
 sonar.links.homepage=https://gitlab-ce.iut.u-bordeaux.fr/lp-dagpi-devops/heat
@@ -47,5 +44,4 @@ sonar.c.clangtidy.reportPath=build/clang-tidy-report
 sonar.c.coverage.reportPath=heat-coverage.xml
 sonar.c.cppcheck.reportPath=heat-cppcheck.xml
 sonar.c.valgrind.reportPath=heat-valgrind.xml
-sonar.c.drmemory.reportPath=drmemory/**/results.txt
 EOF
