@@ -7,5 +7,5 @@ ENV FORCE_UNSAFE_CONFIGURE=1
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update -y
-RUN apt-get install -y build-essential clang cmake doxygen ffmpeg ffmpeg2theora gcovr git python3 python3-numpy python3-matplotlib xsltproc
+RUN apt-get install -y build-essential clang cmake curl doxygen ffmpeg ffmpeg2theora gcovr git python3 python3-numpy python3-matplotlib xsltproc
 RUN apt-get autoremove -y
