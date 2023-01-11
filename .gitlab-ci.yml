@@ -37,4 +37,4 @@ doc_heat:
     paths:
       - public
   only:
-    - main
+    - master

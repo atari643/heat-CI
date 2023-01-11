@@ -31,8 +31,7 @@ Several software engineering techniques are used:
 
 * CMake build system with CTest
 * Doxygen documentation
-* A pipeline to test the code, either gitlab-ci (.gitlab-ci.yml) or Jenkins (Jenkinsfile) can be used
-* Org-mode script for the code analysis and the integration into a SonarQube instance
+* A pipeline to test the code with gitlab-ci
 
 Install
 ---------------------
@@ -62,5 +61,6 @@ make install
 
 Contributors
 ------------
-Florent Pruvost florent.pruvost@inria.fr
-Pierre Ramet pierre.ramet@inria.fr
+
+* Florent Pruvost florent.pruvost@inria.fr
+* Pierre Ramet pierre.ramet@inria.fr

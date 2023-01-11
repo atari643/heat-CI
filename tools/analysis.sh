@@ -22,8 +22,8 @@ valgrind --xml=yes --xml-file=heat-valgrind.xml --memcheck:leak-check=full --sho
 
 # Create the config for sonar-scanner
 cat > sonar-project.properties << EOF
-sonar.links.homepage=https://gitlab-ce.iut.u-bordeaux.fr/lp-dagpi-devops/heat
-sonar.links.scm=https://gitlab-ce.iut.u-bordeaux.fr/lp-dagpi-devops/heat.git
+sonar.links.homepage=https://gitlab-ce.iut.u-bordeaux.fr/pt4/heat
+sonar.links.scm=https://gitlab-ce.iut.u-bordeaux.fr/pt4/heat.git
 sonar.projectKey=heat
 sonar.projectDescription=Solve the heat propagation equation
 sonar.projectVersion=1.0
