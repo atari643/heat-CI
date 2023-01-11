@@ -62,5 +62,6 @@ cd build && ctest
 
 Contributors
 ------------
-Florent Pruvost florent.pruvost@inria.fr
-Pierre Ramet pierre.ramet@inria.fr
+
+* Florent Pruvost florent.pruvost@inria.fr
+* Pierre Ramet pierre.ramet@inria.fr
