@@ -1,5 +1,6 @@
-cmake_minimum_required (VERSION 3.1)
-project (heat C)
+cmake_minimum_required (VERSION 3.3)
+project (Heat)
+enable_language(C)
 include(CMakeDependentOption)
 
 set(HEAT_VERSION_MAJOR "1")

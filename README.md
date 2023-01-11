@@ -1,6 +1,16 @@
 HEAT
 ====================
 
+Quality monitoring
+------------------
+
+### GitLab badges
+[![pipeline status](https://gitlab-ce.iut.u-bordeaux.fr/pt4/heat/badges/master/pipeline.svg)](https://gitlab-ce.iut.u-bordeaux.fr/pt4/heat/commits/master)
+[![coverage report](https://gitlab-ce.iut.u-bordeaux.fr/pt4/heat/badges/master/coverage.svg)](https://gitlab-ce.iut.u-bordeaux.fr/pt4/heat/commits/master)
+
+### Coverity badge
+[![coverity status](https://scan.coverity.com/projects/19229/badge.svg)](https://scan.coverity.com/projects/heat)
+
 Mathematical problem
 ---------------------
 
@@ -31,7 +41,7 @@ This program requires : __Git__, a __C compiler__ (GNU gcc for example) and __CM
 optionally depends on __doxygen__ to build the documentation and __MPI__ to build the parallel version of the
 executable.
 
-Example on Ubuntu 22.04
+Example on Docker image Ubuntu 20.04
 ```sh
 docker run -it ubuntu:22.04
 
@@ -39,9 +49,9 @@ apt update -y
 apt install -y git build-essential cmake make doxygen libopenmpi-dev
 
 # clone the project through git+ssh if you have added your ssh public key on Gitlab
-git clone git@gitlab-ce.iut.u-bordeaux.fr:lp-dagpi-devops/heat.git
+git clone git@gitlab-ce.iut.u-bordeaux.fr:pt4/heat.git
 # or through https with login+password authentication
-git clone https://gitlab-ce.iut.u-bordeaux.fr/lp-dagpi-devops/heat.git
+git clone https://gitlab-ce.iut.u-bordeaux.fr/pt4/heat.git
 
 cd heat
 cmake -B build -S . -DCMAKE_INSTALL_PREFIX=$PWD/install -DBUILD_SHARED_LIBS=ON -DHEAT_USE_MPI=ON
@@ -53,3 +63,4 @@ cd build && ctest
 Contributors
 ------------
 Florent Pruvost florent.pruvost@inria.fr
+Pierre Ramet pierre.ramet@inria.fr
