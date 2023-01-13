@@ -17,21 +17,21 @@ Project
 ---------------------
 
 This program serves as a toy code.
-Several software engineering techniques are used:
+Several software engineering tools are used:
 
 * CMake build system with CTest
+* Gitlab-ci pipeline to test the code (.gitlab-ci.yml)
 * Doxygen documentation
-* A pipeline to test the code, either gitlab-ci (.gitlab-ci.yml) or Jenkins (Jenkinsfile) can be used
-* Org-mode script for the code analysis and the integration into a SonarQube instance
+* Scripts for the code analysis and the integration into a SonarQube instance (tools/)
 
 Install
 ---------------------
 
 This program requires : Git, a C compiler (GNU gcc for example) and CMake to build and install.
 
-Example on Ubuntu 20.04
+Example on Ubuntu 22.04
 ```sh
-docker run -it ubuntu:20.04
+docker run -it ubuntu:22.04
 
 apt update -y
 apt install -y build-essential cmake git
