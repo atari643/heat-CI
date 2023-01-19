@@ -1,33 +1,30 @@
-   cache:
-     untracked: true
+    stages:
+      - build
+      - test
 
-   build:
-     stage: build
-     script: cmake . && make
+    before_script:
+      - mkdir -p build
 
-   test-master:
-     stage: test
-     # fill so that this job is only executed on the master branch
-     only:
-      - master
-     script: ctest
+    build:
+      stage: build
+      script:
+        - cd build && cmake .. -DCMAKE_C_FLAGS="--coverage" && make
+      artifacts:
+        untracked: false
+        when: on_success
+        paths:
+          - build
 
-   test-branches:
-     stage: test
-     # fill so that this job is only executed on all branches except master
-     except:
-      - master
-     script: ctest -R heat_seq
-
-   documentation:
-     stage: deploy
-     # fill to allow failure of this job without making the pipeline in a failure state
-     allow_failure: true
-     # fill with the when keyword to be able to trigger this job manually
-     when: manual
-     # fill with the only and changes keywords to enable this only if some files *.c or *.h change or files in the doc/ directory
-     only:
-      changes:
-        - '*.{c,h}'
-        - 'doc/'
-     script: ["cmake . -DHEAT_DOC=ON", "make doc"]
+    test:
+      stage: test
+      script:
+        - cd build && ctest
+        - gcovr --xml-pretty --exclude-unreachable-branches --print-summary -o coverage.xml --root ${CI_PROJECT_DIR}
+      coverage: /^\s*lines:\s*\d+.\d+\%/
+      artifacts:
+        name: ${CI_JOB_NAME}-${CI_COMMIT_REF_NAME}-${CI_COMMIT_SHA}
+        expire_in: 2 days
+        reports:
+          coverage_report:
+            coverage_format: cobertura
+            path: build/coverage.xml
