@@ -1,9 +1,9 @@
-test-docker:
-  image: tthor/heat
-  script: whoami
-  tags: ['docker']
+   default:
+     image: tthor/heat
+     tags: ['docker']
 
-test-shell:
-  image: tthor/test
-  script: hostname
-  tags: ['docker']
+   linux:
+     script:
+       - cmake .
+       - make
+       - ctest
