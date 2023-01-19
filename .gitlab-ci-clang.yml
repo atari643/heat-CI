@@ -1,0 +1,7 @@
+   # .gitlab-ci-clang.yml
+   linux-clang:
+     # fill this part using the build_test_script macro with the 'extends' keyword and variables (to set clang)
+     variables:
+       CC: clang
+       CXX: clang++
+     extends: .build_test_script
