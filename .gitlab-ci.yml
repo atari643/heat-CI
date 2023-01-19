@@ -1,19 +1,23 @@
-   stages:
-   - build
-   - test
-   - other
+stages:
+- build
+- test
 
-   build:
-     stage: build
-     script:
-       - cmake . && make
+before_script:
+  - mkdir -p build
 
-   test:
-     stage: test
-     script:
-       - cmake . && make && ctest
+build:
+  # use the artifact keyword here to save the build directory in a zip archive uploaded on gitlab
+  stage: build
+  script:
+    - cd build && cmake .. && make
+  artifacts:
+    untracked: false
+    when: on_success
+    expire_in: "30 days"
+    paths:
+      - build
 
-   documentation:
-     stage: other
-     script:
-       - cmake . -DHEAT_DOC=ON && make doc
+test:
+  stage: test
+  script:
+    - cd build && ctest
