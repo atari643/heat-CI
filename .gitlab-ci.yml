@@ -1,40 +1,6 @@
 image: tthor/heat
-
-stages:
-  - build
-  - test
-  - doc
-
-build_heat:
-  stage: build
+test:
   script:
-    - mkdir build
-    - cd build
-    - cmake ..
-    - make
-  artifacts:
-    paths:
-      - build
-
-test_heat:
-  stage: test
-  dependencies:
-    - build_heat
-  script:
-    - cd build
-    - make test
-
-doc_heat:
-  stage: doc
-  script:
-    - cd doc
-    - mkdir build
-    - cd build
-    - cmake ..
-    - make
-    - cp -r html ../../public/
-  artifacts:
-    paths:
-      - public
-  only:
-    - master
+    - hostname
+    - whoami
+  tags: ['docker']
