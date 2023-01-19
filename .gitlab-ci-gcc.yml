@@ -1,7 +1,0 @@
-   # .gitlab-ci-gcc.yml
-   linux-gcc:
-     # fill this part using the build_test_script macro with the 'extends' keyword and variables (to set gcc)
-     variables:
-       CC: gcc
-       CXX: g++
-     extends: .build_test_script

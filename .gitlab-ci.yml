@@ -1,9 +1,16 @@
+   default:
+     image: tthor/heat
+     tags: ['docker']
+
    .build_test_script: &build_test_script
      script:
        - cmake .
        - make
        - ctest
 
-   include:
-     - local: '/.gitlab-ci-gcc.yml'
-     - local: '/.gitlab-ci-clang.yml'
+   build:
+     extends: .build_test_script
+     parallel:
+       matrix:
+         - CC: [gcc, clang]
+           CXX: [g++, clang++]
