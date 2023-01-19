@@ -1,6 +1,8 @@
-image: tthor/heat
-test:
-  script:
-    - hostname
-    - whoami
+test-docker:
+  image: tthor/heat
+  script: whoami
   tags: ['docker']
+
+test-shell:
+  script: hostname
+  tags: ['shell']
