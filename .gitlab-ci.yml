@@ -1,4 +1,4 @@
-image: tthor/test
+image: tthor/heat
 
 stages:
   - build
