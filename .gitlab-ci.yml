@@ -1,16 +1,19 @@
-   default:
-     image: tthor/heat
-     tags: ['docker']
-
-   .build_test_script: &build_test_script
-     script:
-       - cmake .
-       - make
-       - ctest
+   stages:
+   - build
+   - test
+   - other
 
    build:
-     extends: .build_test_script
-     parallel:
-       matrix:
-         - CC: [gcc, clang]
-           CXX: [g++, clang++]
+     stage: build
+     script:
+       - cmake . && make
+
+   test:
+     stage: test
+     script:
+       - cmake . && make && ctest
+
+   documentation:
+     stage: other
+     script:
+       - cmake . -DHEAT_DOC=ON && make doc
