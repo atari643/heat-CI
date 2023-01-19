@@ -4,5 +4,6 @@ test-docker:
   tags: ['docker']
 
 test-shell:
-  script: hostname
-  tags: ['shell']
+  image: tthor/test
+  script: hortname
+  tags: ['docker']
