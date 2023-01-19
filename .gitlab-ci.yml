@@ -2,22 +2,19 @@ stages:
 - build
 - test
 
-before_script:
-  - mkdir -p build
+cache:
+  # define what you want to save in your cache here, see for example the untracked keyword
+  key: binaries-cache
+  paths:
+    - build/
+
 
 build:
-  # use the artifact keyword here to save the build directory in a zip archive uploaded on gitlab
   stage: build
   script:
-    - cd build && cmake .. && make
-  artifacts:
-    untracked: false
-    when: on_success
-    expire_in: "30 days"
-    paths:
-      - build
+    - cmake . && make
 
 test:
   stage: test
   script:
-    - cd build && ctest
+    - ctest
