@@ -17,7 +17,7 @@ scan-build -v -plist --intercept-first --analyze-headers -o analyzer_reports cma
            -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
            -DCMAKE_C_FLAGS="$CFLAGS" \
            -DCMAKE_EXE_LINKER_FLAGS="--coverage" \
-           -DHEAT_USE_MPI=ON
+           -DHEAT_USE_MPI=OFF
 
 # make (+clang analyzer)
 scan-build -v -plist --intercept-first --analyze-headers -o analyzer_reports make 2>&1 | tee heat-build.log
