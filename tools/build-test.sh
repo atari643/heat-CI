@@ -23,5 +23,4 @@ scan-build -v -plist --intercept-first --analyze-headers -o analyzer_reports cma
 scan-build -v -plist --intercept-first --analyze-headers -o analyzer_reports make 2>&1 | tee heat-build.log
 
 # test
-#ctest --no-compress-output -T Test -V
-ctest --no-compress-output -D Experimental -V
+ctest --no-compress-output -T Test -V --output-junit ../heat-junit.xml
