@@ -7,9 +7,9 @@ cd $HEAT_ROOT
 
 export CFLAGS="-O0 -g -fPIC --coverage -Wall -Wunused-parameter -Wundef -Wno-long-long -Wsign-compare -Wmissing-prototypes -Wstrict-prototypes -Wcomment -pedantic -fdiagnostics-show-option -fno-inline -fno-omit-frame-pointer"
 
-mkdir -p build
+if [ -d build ]; then rm -rf build; fi
+mkdir build
 cd build
-rm CMake* -rf
 
 # configure
 scan-build -v -plist --intercept-first --analyze-headers -o analyzer_reports cmake .. \
