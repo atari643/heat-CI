@@ -27,14 +27,16 @@ Several software engineering tools are used:
 Install
 ---------------------
 
-This program requires : Git, a C compiler (GNU gcc for example) and CMake to build and install.
+This program requires : __Git__, a __C compiler__ (GNU gcc for example) and __CMake__ to build and install. It
+optionally depends on __doxygen__ to build the documentation and __MPI__ to build the parallel version of the
+executable.
 
 Example on Ubuntu 22.04
 ```sh
 docker run -it ubuntu:22.04
 
 apt update -y
-apt install -y build-essential cmake git
+apt install -y git build-essential cmake make doxygen libopenmpi-dev
 
 # clone the project through git+ssh if you have added your ssh public key on Gitlab
 git clone git@gitlab-ce.iut.u-bordeaux.fr:lp-dagpi-devops/heat.git
@@ -42,12 +44,10 @@ git clone git@gitlab-ce.iut.u-bordeaux.fr:lp-dagpi-devops/heat.git
 git clone https://gitlab-ce.iut.u-bordeaux.fr/lp-dagpi-devops/heat.git
 
 cd heat
-mkdir build
-cd build
-cmake ..
-make
-make test
-make install
+cmake -B build -S .
+cmake --build build
+cmake --install build
+cd build && ctest
 ```
 
 Contributors
