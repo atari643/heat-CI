@@ -44,7 +44,7 @@ git clone git@gitlab-ce.iut.u-bordeaux.fr:lp-dagpi-devops/heat.git
 git clone https://gitlab-ce.iut.u-bordeaux.fr/lp-dagpi-devops/heat.git
 
 cd heat
-cmake -B build -S .
+cmake -B build -S . -DCMAKE_INSTALL_PREFIX=$PWD/install -DBUILD_SHARED_LIBS=ON -DHEAT_USE_MPI=ON
 cmake --build build
 cmake --install build
 cd build && ctest
