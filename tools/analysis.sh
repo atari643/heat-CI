@@ -44,6 +44,7 @@ sonar.cxx.clangtidy.reportPaths=build/clang-tidy-report
 sonar.cxx.cobertura.reportPaths=heat-coverage.xml
 sonar.cxx.cppcheck.reportPaths=heat-cppcheck.xml
 sonar.cxx.rats.reportPaths=heat-rats.xml
+sonar.cxx.vera.reportPaths=heat-vera.xml
 sonar.cxx.valgrind.reportPaths=heat-valgrind.xml
 sonar.cxx.xunit.reportPaths=heat-junit.xml
 sonar.python.xunit.reportPath=plot_junit.xml
