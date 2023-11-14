@@ -24,3 +24,7 @@ scan-build -v -plist --intercept-first --analyze-headers -o analyzer_reports mak
 
 # test
 ctest --no-compress-output -T Test -V --output-junit ../heat-junit.xml
+
+# test of python script
+pytest --junit-xml=../plot_junit.xml --cov=heat_plot --cov-report=xml --cov-report=term-missing ..
+mv coverage.xml ../plot_coverage.xml
