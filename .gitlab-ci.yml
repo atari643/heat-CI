@@ -1,5 +1,4 @@
 .build_test_script: &build_test_script
-  script:
     - cmake .
     - make
     - ctest
