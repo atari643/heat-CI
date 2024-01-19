@@ -1,19 +1,19 @@
-linux-gcc:
-  variables:
-    CC: gcc
-    CXX: g++
+.build_test_script: &build_test_script
   script:
     - cmake .
     - make
     - ctest
 
+linux-gcc:
+ variables:
+    CC: gcc
+      script: *build_test_script
+  # fill this part using the build_test_script macro with anchors <<: *build_test_script and variables (to set gcc)
+
 linux-clang:
-  variables:
+ variables:
     CC: clang
-    CXX: clang++
-  script:
-    - cmake .
-    - make
-    - ctest
-    
+    script: *build_test_script
+  # fill this part using the build_test_script macro with anchors <<: *build_test_script and variables (to set clang)
+
   
