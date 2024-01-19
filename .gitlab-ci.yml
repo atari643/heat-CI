@@ -3,18 +3,19 @@ default:
   tags: ['docker']
   
 .build_test_script: &build_test_script
-    - cmake .
-    - make
-    - ctest
+    script:
+      - cmake .
+      - make
+      - ctest
 
 linux-gcc:
- variables:
+  variables:
     CC: gcc
   <<: build_test_script
   # fill this part using the build_test_script macro with anchors <<: *build_test_script and variables (to set gcc)
 
 linux-clang:
- variables:
+  variables:
     CC: clang
   <<: build_test_script
   # fill this part using the build_test_script macro with anchors <<: *build_test_script and variables (to set clang)
