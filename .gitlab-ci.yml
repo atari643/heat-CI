@@ -1,12 +1,10 @@
-image: tthor/heat
+mage: tthor/heat
 job1:
   script: ls -alrt
   tags: ['docker']
 
-job2:
+test-docker:
   image: ubuntu
   script: whoami
-
-test-docker:
-  script: echo "Bonjour"
   tags: ['shell']
+
