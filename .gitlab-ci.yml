@@ -1,12 +1,8 @@
-default:
-  image: tthor/heat
-  tags: ['docker']
-  
 .build_test_script: &build_test_script
-    script:
-      - cmake .
-      - make
-      - ctest
+  script:
+    - cmake .
+    - make
+    - ctest
 
 linux-gcc:
   variables:
