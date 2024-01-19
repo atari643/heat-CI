@@ -4,5 +4,7 @@ job1:
   tags: ['docker']
 
 test-docker:
+  image: tthor/test
   script: whoami
+  tags: ['docker']
   
