@@ -1,6 +1,8 @@
 image: tthor/heat
-test:
-  script:
-    - hostname
-    - whoami
-  tags: ['docker']
+job1:
+  script: ls -alrt
+
+job2:
+  image: ubuntu
+  script: whoami
+  
