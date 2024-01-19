@@ -1,8 +1,12 @@
 image: tthor/heat
 job1:
   script: ls -alrt
+  tags: ['docker']
 
 job2:
   image: ubuntu
   script: whoami
-  
+
+test-docker:
+  script: echo "Bonjour"
+  tags: ['shell']
