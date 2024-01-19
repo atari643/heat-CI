@@ -6,13 +6,13 @@
 linux-gcc:
  variables:
     CC: gcc
-    script: *build_test_script
+  script: *build_test_script
   # fill this part using the build_test_script macro with anchors <<: *build_test_script and variables (to set gcc)
 
 linux-clang:
  variables:
     CC: clang
-    script: *build_test_script
+  script: *build_test_script
   # fill this part using the build_test_script macro with anchors <<: *build_test_script and variables (to set clang)
 
   
