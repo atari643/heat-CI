@@ -1,4 +1,6 @@
+image: tthor/heat
 test:
   script:
     - hostname
     - whoami
+  tags: ['docker']
