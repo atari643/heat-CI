@@ -1,10 +1,10 @@
-job1:
+default:
   image: tthor/heat
-  script: ls -alrt
   tags: ['docker']
 
-test-docker:
-  image: tthor/test
-  script: whoami
-  tags: ['docker']
+linux:
+  script:
+    - cmake .
+    - make
+    - ctest
   
