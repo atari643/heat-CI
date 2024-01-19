@@ -1,10 +1,8 @@
-mage: tthor/heat
+image: tthor/heat
 job1:
   script: ls -alrt
   tags: ['docker']
 
 test-docker:
-  image: ubuntu
   script: whoami
   tags: ['shell']
-
