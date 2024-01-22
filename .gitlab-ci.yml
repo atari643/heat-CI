@@ -7,20 +7,37 @@ stages:
   - test
 
 cache:
-  key: binaries-cache
-  
-
-  # define what you want to save in 
-  #your cache here, 
-  #see for example the untracked keyword
+  untracked: true
 
 build:
   stage: build
-  script:
-    - cmake . && make
-  cache:
+  script: cmake . && make
 
-test:
+test-master:
   stage: test
-  script:
-    -  ctest
+  script: ctest
+  only:
+    branches: master
+  # fill so that this job is only executed on the master branch
+
+test-branches:
+  stage: test
+  script: ctest -R heat_seq
+  except:
+    branches: master
+  # fill so that this job is only executed on all branches except master
+
+documentation:
+  stage: deploy
+  script: ["cmake . -DHEAT_DOC=ON", "make doc"]
+  # fill to allow failure of this job without making the pipeline in a failure state
+  allow_failure: true
+  # fill with the when keyword to be able to trigger this job manually
+  when: manual
+  # fill with the only and changes keywords to enable this only if some files *.c or *.h change or files in the doc/ directory
+  rules:
+    - changes:
+        - *.c
+        - *.h
+        - doc/*
+
