@@ -3,6 +3,7 @@
     - cmake .
     - make
     - ctest
+    
   include:
     - local: '.gitlab-ci-gcc.yml'
     - local: '.gitlab-ci-clang.yml'

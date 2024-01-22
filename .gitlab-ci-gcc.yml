@@ -1,3 +1,5 @@
+extends: .gitlab-ci.yml
+
 linux-gcc:
   variables:
     CC: gcc
