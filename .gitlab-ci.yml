@@ -1,10 +1,11 @@
- .build_test_script: &build_test_script
-    script:
-      - cmake .
-      - make
-      - ctest
+# .gitlab-ci.yml
+.build_test_script: &build_test_script
+  script:
+    - cmake .
+    - make
+    - ctest
 
 include:
-    - local: '/.gitlab-ci-gcc.yml'
-    - local: '/.gitlab-ci-clang.yml'
-    
+  - local: '/.gitlab-ci-gcc.yml'
+  - local: '/.gitlab-ci-clang.yml'
+
