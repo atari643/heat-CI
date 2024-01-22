@@ -1,5 +1,0 @@
-linux-clang:
-  variables:
-    CC: clang
-  extends: .build_test_script
- 
