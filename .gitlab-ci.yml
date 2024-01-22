@@ -11,7 +11,7 @@ default:
 build:
   extends: .build_test_script
   # fill here the parallel matrix configuration to get the 4 combinations of compilers
-  parallem:
+  parallel:
     matrix:
-       - CC: [gcc, glang]
+        - CC: [gcc, glang]
           CXX: [g++, glang++]
