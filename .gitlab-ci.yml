@@ -17,7 +17,7 @@ cache:
 build:
   stage: build
   script:
-    - cmake .. && make
+    - cmake . && make
   cache:
 
 test:
