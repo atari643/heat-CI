@@ -4,6 +4,5 @@
       - make
       - ctest
 include:
-  - local: '/.gitlab-ci-gcc.yml'
-  - local: '/.gitlab-ci-clang.yml'
-  
+  - local: `/.gitlab-ci-gcc.yml`
+  - local: `/.gitlab-ci-clang.yml`
