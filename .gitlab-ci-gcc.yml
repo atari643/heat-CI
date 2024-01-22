@@ -1,5 +1,5 @@
 linux-gcc:
   variables:
     CC: gcc
-  extends: build_test_script
+  extends: .build_test_script
  
