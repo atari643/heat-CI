@@ -6,6 +6,11 @@ stages:
   - build
   - test
 
+cache:
+  key: binaries-cache
+  paths:
+    - build/
+
   # define what you want to save in 
   #your cache here, 
   #see for example the untracked keyword
@@ -13,10 +18,11 @@ stages:
 build:
   stage: build
   script:
-    - cmake . && make
+    - cd build && cmake .. && make
   cache:
 
 test:
   stage: test
   script:
-    - ctest
+    - cd build  && ctest
+    
