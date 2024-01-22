@@ -8,8 +8,7 @@ stages:
 
 cache:
   key: binaries-cache
-  paths:
-    - build/
+  
 
   # define what you want to save in 
   #your cache here, 
@@ -18,11 +17,10 @@ cache:
 build:
   stage: build
   script:
-    - cd build && cmake .. && make
+    - cmake .. && make
   cache:
 
 test:
   stage: test
   script:
-    - cd build  && ctest
-    
+    -  ctest
