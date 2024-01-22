@@ -13,5 +13,5 @@ build:
   # fill here the parallel matrix configuration to get the 4 combinations of compilers
   parallel:
     matrix:
-        - CC: [gcc, glang]
-          CXX: [g++, glang++]
+        - CC: [gcc, clang]
+          CXX: [g++, clang++]
