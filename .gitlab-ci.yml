@@ -12,6 +12,7 @@ build:
   # use the artifact keyword here to save the build directory in a zip archive uploaded on gitlab
   artifacts:
     name:  heatExecutable
+    expire_in: 1 day
     paths:
         - build/
         
