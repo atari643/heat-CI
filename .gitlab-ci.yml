@@ -1,22 +1,22 @@
-stages:
-- build
-- test
+default:
+  image: tthor/heat
+  tags: ['docker']
 
-before_script:
-  - mkdir -p build
+stages:
+  - build
+  - test
+
+  # define what you want to save in 
+  #your cache here, 
+  #see for example the untracked keyword
 
 build:
   stage: build
   script:
-    - cd build && cmake .. && make
-  # use the artifact keyword here to save the build directory in a zip archive uploaded on gitlab
-  artifacts:
-    name:  heatExecutable
-    expire_in: 1 day
-    paths:
-        - build/
-        
+    - cmake . && make
+  cache:
+
 test:
   stage: test
   script:
-    - cd build && ctest
+    - ctest
