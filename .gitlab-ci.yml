@@ -5,6 +5,7 @@ default:
 stages:
   - build
   - test
+  - deploy
 
 cache:
   untracked: true
@@ -37,8 +38,7 @@ documentation:
   # fill with the only and changes keywords to enable this only if some files *.c or *.h change or files in the doc/ directory
   rules:
     - changes:
-        - paths:
-            - /*.c
-            - /*.h
-            - /doc/*
+        - /*.c
+        - /*.h
+        - /doc/*
 
