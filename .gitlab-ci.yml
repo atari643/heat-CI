@@ -30,7 +30,9 @@ test-branches:
 
 documentation:
   stage: deploy
-  script: ["cmake . -DHEAT_DOC=ON", "make doc"]
+  script: 
+     - cmake . -DHEAT_DOC=ON
+     - make doc
   # fill to allow failure of this job without making the pipeline in a failure state
   allow_failure: true
   # fill with the when keyword to be able to trigger this job manually
