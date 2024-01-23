@@ -7,26 +7,26 @@ stages:
   - test
   - deploy
 
-cache:
-  untracked: true
+before_script:
+  - mkdir -p build
 
 build:
   stage: build
-  script: cmake . && make
+  script:
+    - cd build && cmake .. -DCMAKE_C_FLAGS="--coverage".
+  artifacts:
+    untracked: false
+    when: on_success
+    paths:
+      - build
 
-test-master:
+test:
   stage: test
-  script: ctest
-  only:
-    - master
-  # fill so that this job is only executed on the master branch
-
-test-branches:
-  stage: test
-  script: ctest -R heat_seq
-  except:
-    - master
-  # fill so that this job is only executed on all branches except master
+  script:
+    - cd build && ctest
+    - gcovr -r ..
+  # fix for gcovr
+  # add coverage and artifacts
 
 documentation:
   stage: deploy
