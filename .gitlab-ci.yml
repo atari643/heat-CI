@@ -17,14 +17,14 @@ test-master:
   stage: test
   script: ctest
   only:
-    branches: master
+    - master
   # fill so that this job is only executed on the master branch
 
 test-branches:
   stage: test
   script: ctest -R heat_seq
   except:
-    branches: master
+    - master
   # fill so that this job is only executed on all branches except master
 
 documentation:
@@ -37,7 +37,8 @@ documentation:
   # fill with the only and changes keywords to enable this only if some files *.c or *.h change or files in the doc/ directory
   rules:
     - changes:
-        - *.c
-        - *.h
-        - doc/*
+        - paths:
+          - *.c
+          - *.h
+          - doc/*
 
