@@ -38,7 +38,7 @@ documentation:
   rules:
     - changes:
         - paths:
-          - *.c
-          - *.h
-          - doc/*
+            - /*.c
+            - /*.h
+            - /doc/*
 
