@@ -208,7 +208,6 @@ main (int argc, char *argv[])
                             u_in, u_out);
   end = clock();
   cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-  printf("<DartMeasurement name=\"Perf\" type=\"numeric/double\">%g</DartMeasurement>\n", cpu_time_used);
 
   free (u_out);
   free (u_in);
