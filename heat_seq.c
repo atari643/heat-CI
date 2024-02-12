@@ -187,8 +187,8 @@ main (int argc, char *argv[])
     save = atoi(argv[4]);
     print = atoi(argv[5]);
   }
-
-  hx = 1. / nx;
+  printf("div par zéro");
+  hx = 1. / 0;
   hy = 1. / ny;
   dt = MIN (SQR (hx) / 4., SQR (hy) / 4.);
 
