@@ -173,7 +173,7 @@ int
 main (int argc, char *argv[])
 {
   int nx=0, ny=0, size_x, size_y, save=0, print=0, iter_max=0;
-  double hx, hy, dt, dtmp;
+  double hx, hy, dt, utmp;
   double *u_in, *u_out, *u_tmp;
   clock_t start, end;
   double cpu_time_used;
@@ -187,8 +187,8 @@ main (int argc, char *argv[])
     save = atoi(argv[4]);
     print = atoi(argv[5]);
   }
-
-  hx = 1. / nx;
+  printf("div par zéro");
+  hx = 1. / 0;
   hy = 1. / ny;
   dt = MIN (SQR (hx) / 4., SQR (hy) / 4.);
 
@@ -198,7 +198,7 @@ main (int argc, char *argv[])
   xalloc (u_in, size_x * size_y, double);
   xalloc (u_out, size_x * size_y, double);
   xalloc (u_tmp, size_x * size_y, double);
-  u_tmp[0] = dtmp;
+  u_tmp[0] = utmp;
 
   set_bounds (size_x, size_y, u_in);
   set_bounds (size_x, size_y, u_out);
